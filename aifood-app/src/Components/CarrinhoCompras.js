@@ -5,7 +5,7 @@ const CarrinhoCompras = ({ open, onClose, items }) => {
   const calcularTotal = () => {
     // Implemente a lógica para calcular o total dos itens do carrinho
     // Por enquanto, retornaremos um valor fixo
-    return 100;
+    return 0;
   };
 
   return (

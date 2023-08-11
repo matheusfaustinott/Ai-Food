@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Modal, Button, TextField, Box } from '@mui/material';
+import { Modal, Button, TextField, Box, Alert } from '@mui/material';
 import axios from 'axios';
 
 const LoginForm = ({ open, onClose }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loginMessage, setLoginMessage] = useState('');
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -21,12 +23,14 @@ const LoginForm = ({ open, onClose }) => {
         password: password,
       });
 
-      // Aqui você pode tratar a resposta do servidor
-      console.log(response.data);
-
-      onClose(); // Feche a modal após o login bem-sucedido
+      if (response.data.message === 'Login bem-sucedido') {
+        setLoginMessage(`Olá, ${response.data.user.name} Bem-vindo!`); // Ajusta a mensagem de sucesso
+        onClose(); // Feche a modal após o login bem-sucedido
+      } else {
+        setError(response.data.message);
+      }
     } catch (error) {
-      // Trate erros aqui, como exibir uma mensagem de erro para o usuário
+      setError('Ocorreu um erro ao fazer o login. Por favor, tente novamente mais tarde.');
       console.error(error);
     }
   };
@@ -36,6 +40,8 @@ const LoginForm = ({ open, onClose }) => {
       <Box sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', bgcolor: 'background.paper', boxShadow: 24, p: 4, minWidth: 300 }}>
         <TextField fullWidth label="Email" variant="outlined" value={email} onChange={handleEmailChange} />
         <TextField fullWidth label="Senha" type="password" variant="outlined" value={password} onChange={handlePasswordChange} />
+        {error && <Alert severity="error" sx={{ mt: 2 }}>{error}</Alert>}
+        {loginMessage && <Alert severity="success" sx={{ mt: 2 }}>{loginMessage}</Alert>}
         <Button variant="contained" color="primary" onClick={handleLogin} fullWidth>
           Entrar
         </Button>
