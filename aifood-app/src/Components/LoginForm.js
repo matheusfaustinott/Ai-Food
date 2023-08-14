@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal, Button, TextField, Box, Alert } from '@mui/material';
 import axios from 'axios';
 
-const LoginForm = ({ open, onClose }) => {
+const LoginForm = ({ open, onClose, onLoginSuccess }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -26,6 +26,7 @@ const LoginForm = ({ open, onClose }) => {
       if (response.data.message === 'Login bem-sucedido') {
         setLoginMessage(`Olá, ${response.data.user.name} Bem-vindo!`); // Ajusta a mensagem de sucesso
         onClose(); // Feche a modal após o login bem-sucedido
+        onLoginSuccess(); // Chame a função de sucesso de login
       } else {
         setError(response.data.message);
       }

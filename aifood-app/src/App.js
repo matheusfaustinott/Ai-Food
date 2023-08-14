@@ -1,11 +1,12 @@
+// src/App.js
 import React from 'react';
 import './App.css';
-import HomePage from './HomePage';
+import Routes from './Components/Routes';
 
 function App() {
   return (
     <div className="App">
-      <HomePage />
+      <Routes />
     </div>
   );
 }
