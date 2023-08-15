@@ -1,11 +1,11 @@
-// src/VendasPage.js
 import React from 'react';
 
-const VendasPage = () => {
+const VendasPage = ({ user }) => {
   return (
     <div>
       <h2>Página de Vendas</h2>
-      {/* Aqui você pode colocar o conteúdo da página de vendas */}
+      {user && <p>Bem-vindo, {user.name}!</p>}
+      {/* Outro conteúdo da página de vendas */}
     </div>
   );
 };

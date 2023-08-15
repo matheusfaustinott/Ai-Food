@@ -22,11 +22,13 @@ const LoginForm = ({ open, onClose, onLoginSuccess }) => {
         email: email,
         password: password,
       });
-
+  
       if (response.data.message === 'Login bem-sucedido') {
-        setLoginMessage(`Olá, ${response.data.user.name} Bem-vindo!`); // Ajusta a mensagem de sucesso
-        onClose(); // Feche a modal após o login bem-sucedido
-        onLoginSuccess(); // Chame a função de sucesso de login
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('user', JSON.stringify(response.data.user));
+        setLoginMessage(`Olá, ${response.data.user.name} Bem-vindo!`);
+        onClose();
+        onLoginSuccess();
       } else {
         setError(response.data.message);
       }
