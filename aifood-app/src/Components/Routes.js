@@ -27,7 +27,7 @@ const RoutesComponent = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/vendas' element={<VendasPage user={user} />} />
+        <Route path='/home' element={<VendasPage user={user} />} />
         {/* Outras rotas */}
       </Routes>
     </BrowserRouter>

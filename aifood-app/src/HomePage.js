@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Typography, Container, Box } from '@mui/material';
+import { Grid, Typography, Box } from '@mui/material';
 import LoginButton from './Components/LoginButton';
 import CadastroButton from './Components/CadastroButton';
 import { useNavigate } from 'react-router-dom'; // Importe o useNavigate
@@ -42,7 +42,6 @@ const HomePage = () => {
         style={{
           backgroundColor: 'rgba(0, 0, 0, 0.3)', // Cor cinza com transparência
           padding: '20px', // Espaçamento interno
-          gap: '5px',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',

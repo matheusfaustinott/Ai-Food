@@ -1,7 +1,8 @@
 // src/App.js
 import React from 'react';
 import './App.css';
-import RoutesComponent from './Components/RoutesConfig';
+import RoutesComponent from './Components/Routes';
+
 
 function App() {
   return (
