@@ -40,12 +40,22 @@ const LoginForm = ({ open, onClose, onLoginSuccess }) => {
 
   return (
     <Modal open={open} onClose={onClose}>
-      <Box sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', bgcolor: 'background.paper', boxShadow: 24, p: 4, minWidth: 300 }}>
-        <TextField fullWidth label="Email" variant="outlined" value={email} onChange={handleEmailChange} />
-        <TextField fullWidth label="Senha" type="password" variant="outlined" value={password} onChange={handlePasswordChange} />
+      <Box sx={{ 
+        position: 'absolute', 
+        top: '50%', 
+        left: '50%', 
+        transform: 'translate(-50%, -50%)', 
+        bgcolor: 'background.paper', 
+        boxShadow: 24, 
+        p: 4, 
+        minWidth: 300,
+        borderRadius: 3,
+        }}>
+        <TextField fullWidth label="Email" variant="standard" value={email} onChange={handleEmailChange} sx={{ mb: 2}} />
+        <TextField fullWidth label="Senha" type="password" variant="standard" value={password} onChange={handlePasswordChange} sx={{ mb: 2}} />
         {error && <Alert severity="error" sx={{ mt: 2 }}>{error}</Alert>}
         {loginMessage && <Alert severity="success" sx={{ mt: 2 }}>{loginMessage}</Alert>}
-        <Button variant="contained" color="primary" onClick={handleLogin} fullWidth>
+        <Button variant="standard" color="primary" onClick={handleLogin} fullWidth>
           Entrar
         </Button>
       </Box>
