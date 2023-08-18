@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Button, Badge } from '@mui/material';
+import { Badge, IconButton } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CarrinhoCompras from './CarrinhoCompras';
 
-const CarrinhoButton = () => {
+const CarrinhoButton = ({ cartItems, setCartItems }) => {
   const [openCarrinho, setOpenCarrinho] = useState(false);
-  const [itensCarrinho, setItensCarrinho] = useState([]); // Aqui você pode manter a lista de itens do carrinho
 
   const handleOpenCarrinho = () => {
     setOpenCarrinho(true);
@@ -17,13 +16,12 @@ const CarrinhoButton = () => {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleOpenCarrinho}>
-        <Badge badgeContent={itensCarrinho.length} color="secondary">
+      <IconButton onClick={handleOpenCarrinho}>
+        <Badge badgeContent={cartItems.length} color="secondary">
           <ShoppingCartIcon />
         </Badge>
-        Carrinho
-      </Button>
-      <CarrinhoCompras open={openCarrinho} onClose={handleCloseCarrinho} items={itensCarrinho} />
+      </IconButton>
+      <CarrinhoCompras open={openCarrinho} onClose={handleCloseCarrinho} cartItems={cartItems} setCartItems={setCartItems} />
     </div>
   );
 };

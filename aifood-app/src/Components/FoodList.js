@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardActions, Button, Typography, Grid } from '@mui/material';
 import axios from 'axios';
 
-const FoodList = () => {
+const FoodList = ({ setCartItems }) => {
   const [foods, setFoods] = useState([]);
 
   useEffect(() => {
@@ -18,6 +18,10 @@ const FoodList = () => {
     fetchFoods();
   }, []);
 
+  const addToCart = (item) => {
+    setCartItems((prevCartItems) => [...prevCartItems, item]);
+  };
+
   return (
     <Grid container spacing={2}>
       {foods.map(food => (
@@ -27,10 +31,14 @@ const FoodList = () => {
               <img src={food.image} alt={food.foodname} style={{ maxWidth: '100%', maxHeight: '60%' }} />
               <Typography variant="h6">{food.foodname}</Typography>
               <Typography>{food.description}</Typography>
-              <Typography variant="h6">Preço: R$ {food.price}</Typography>
+              <Typography variant="h6">Preço: {food.price}</Typography>
             </CardContent>
             <CardActions>
-              <Button variant="contained" color="primary">
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => addToCart(food)}
+              >
                 Adicionar ao Carrinho
               </Button>
             </CardActions>
