@@ -45,7 +45,7 @@ const CarrinhoCompras = ({ open, onClose, cartItems, setCartItems }) => {
         <div style={{ padding: '10px 16px', display: 'flex', justifyContent: 'space-between' }}>
           <ListItemText primary={`Total: R$${calcularTotal().toFixed(2)}`} />
           <Button variant="contained" color="primary">
-            Finalizar Compra
+            Finalizar Compra Componente a ser feito
           </Button>
           <Button variant="contained" color="secondary" onClick={handleLimparCarrinho}>
             Limpar Carrinho
