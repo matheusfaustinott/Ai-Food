@@ -32,7 +32,7 @@ const WelcomeButton = () => {
 
   return (
     <div>
-      <Button variant="stardard" color="primary" onClick={handleMenuOpen}>
+      <Button variant="stardard" color="primary" onClick={handleMenuOpen} sx={{ display: 'flex', flexDirection: 'row', gap: '13px'}}>
         <Avatar sx={{ bgcolor: getRandomColor() }}>{user && user.name.charAt(0)}</Avatar>
         Olá {user && user.name} Bem-vindo!
       </Button>

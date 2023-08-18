@@ -14,11 +14,21 @@ const CarrinhoCompras = ({ open, onClose, cartItems, setCartItems }) => {
 
   return (
     <Drawer anchor="right" open={open} onClose={onClose}>
-      <div style={{ width: 300 }}>
+      <div style={{ 
+        width: 500,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center' 
+      }}>
         <List>
           {cartItems.map((item, index) => (
-            <ListItem key={index}>
-              <Card style={{ width: '100%' }}>
+            <ListItem key={index} sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}>
+              <Card style={{ width: '80%' }}>
                 <CardContent>
                   <img src={item.image} alt={item.foodname} style={{ maxWidth: '100%', maxHeight: '60%' }} />
                   <Typography variant="h6">{item.foodname}</Typography>
@@ -27,8 +37,9 @@ const CarrinhoCompras = ({ open, onClose, cartItems, setCartItems }) => {
                 </CardContent>
                 <CardActions>
                   <Button
-                    variant="contained"
-                    color="secondary"
+                    size='small'
+                    variant="text"
+                    color="error"
                     onClick={() => {
                       const updatedCart = cartItems.filter((_, idx) => idx !== index);
                       setCartItems(updatedCart);
@@ -42,12 +53,12 @@ const CarrinhoCompras = ({ open, onClose, cartItems, setCartItems }) => {
           ))}
         </List>
         <Divider />
-        <div style={{ padding: '10px 16px', display: 'flex', justifyContent: 'space-between' }}>
+        <div style={{ padding: '10px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}>
           <ListItemText primary={`Total: R$${calcularTotal().toFixed(2)}`} />
-          <Button variant="contained" color="primary">
-            Finalizar Compra Componente a ser feito
+          <Button size='small' variant="contained" color="success">
+            Finalizar Compra
           </Button>
-          <Button variant="contained" color="secondary" onClick={handleLimparCarrinho}>
+          <Button size='small' variant="contained" color="error" onClick={handleLimparCarrinho}>
             Limpar Carrinho
           </Button>
         </div>

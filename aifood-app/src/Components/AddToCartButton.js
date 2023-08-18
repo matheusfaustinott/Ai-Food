@@ -7,7 +7,7 @@ const AddToCartButton = ({ onAddToCart, item }) => {
   };
 
   return (
-    <Button variant="contained" color="primary" onClick={handleAddToCart}>
+    <Button size='small' variant="contained" color="primary" onClick={handleAddToCart}>
       Adicionar ao Carrinho
     </Button>
   );

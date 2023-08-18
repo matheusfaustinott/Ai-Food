@@ -8,11 +8,19 @@ const VendasPage = ({ user }) => {
 
   return (
     <div>
-      <h2>Página de Vendas</h2>
-      {user && <p>Bem-vindo, {user.name}!</p>}
-      <WelcomeButton/>
-      <FoodList setCartItems={setCartItems} /> 
-      <CarrinhoButton cartItems={cartItems} setCartItems={setCartItems} /> {/* Passe as propriedades cartItems e setCartItems */}
+      <div style={{
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+      }}>
+        {user && <p>Bem-vindo, {user.name}!</p>}
+        <WelcomeButton/>
+        <CarrinhoButton cartItems={cartItems} setCartItems={setCartItems} /> {/* Passe as propriedades cartItems e setCartItems */}
+      </div>
+      <div>
+        <h2>Página de Vendas</h2>
+        <FoodList setCartItems={setCartItems} /> 
+      </div>
     </div>
   );
 };
