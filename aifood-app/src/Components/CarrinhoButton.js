@@ -16,7 +16,9 @@ const CarrinhoButton = ({ cartItems, setCartItems }) => {
 
   return (
     <div>
-      <IconButton onClick={handleOpenCarrinho}>
+      <IconButton onClick={handleOpenCarrinho} sx={{
+        padding: '13px'
+      }}>
         <Badge badgeContent={cartItems.length} color="secondary">
           <ShoppingCartIcon />
         </Badge>
