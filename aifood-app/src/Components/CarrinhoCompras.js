@@ -1,8 +1,19 @@
-
+import React, { useState } from 'react';
 import { Drawer, List, ListItem, ListItemText, Button, Divider } from '@mui/material';
 import { Card, CardContent, CardActions, Typography } from '@mui/material';
+import PagamentoModal from './PagamentoModal';
 
 const CarrinhoCompras = ({ open, onClose, cartItems, setCartItems }) => {
+  const [pagamentoModalOpen, setPagamentoModalOpen] = useState(false);
+
+  const handleAbrirPagamentoModal = () => {
+    setPagamentoModalOpen(true);
+  };
+
+  const handleClosePagamentoModal = () => {
+    setPagamentoModalOpen(false);
+  };
+
   const calcularTotal = () => {
     const total = cartItems.reduce((acc, item) => acc + parseFloat(item.price.replace("R$", "").replace(".", "").replace(",", ".")), 0);
     return total;
@@ -55,7 +66,7 @@ const CarrinhoCompras = ({ open, onClose, cartItems, setCartItems }) => {
         <Divider />
         <div style={{ padding: '10px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}>
           <ListItemText primary={`Total: R$${calcularTotal().toFixed(2)}`} />
-          <Button size='small' variant="contained" color="success">
+          <Button size='small' variant="contained" color="success" onClick={handleAbrirPagamentoModal}>
             Ir para pagamento
           </Button>
           <Button size='small' variant="contained" color="error" onClick={handleLimparCarrinho}>
@@ -63,6 +74,7 @@ const CarrinhoCompras = ({ open, onClose, cartItems, setCartItems }) => {
           </Button>
         </div>
       </div>
+      {pagamentoModalOpen && <PagamentoModal open={pagamentoModalOpen} onClose={handleClosePagamentoModal} />}
     </Drawer>
   );
 };
