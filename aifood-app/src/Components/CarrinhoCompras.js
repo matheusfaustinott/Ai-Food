@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Drawer, List, ListItem, ListItemText, Button, Divider } from '@mui/material';
 import { Card, CardContent, CardActions, Typography } from '@mui/material';
 
@@ -56,7 +56,7 @@ const CarrinhoCompras = ({ open, onClose, cartItems, setCartItems }) => {
         <div style={{ padding: '10px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}>
           <ListItemText primary={`Total: R$${calcularTotal().toFixed(2)}`} />
           <Button size='small' variant="contained" color="success">
-            Finalizar Compra
+            Ir para pagamento
           </Button>
           <Button size='small' variant="contained" color="error" onClick={handleLimparCarrinho}>
             Limpar Carrinho
