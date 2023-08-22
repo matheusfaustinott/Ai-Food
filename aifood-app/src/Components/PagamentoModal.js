@@ -11,11 +11,14 @@ const PagamentoModal = ({ open, onClose }) => {
   const [cep, setCep] = useState('');
   const [bairro, setBairro] = useState('');
   const [rua, setRua] = useState('');
-  const [complemento, setComplemento] = useState(''); // Mantenha o estado para uso futuro
+  const [complemento, setComplemento] = useState(''); 
   const [cidade, setCidade] = useState('');
   const [selectedCountry, setSelectedCountry] = useState('+55');
   const [telefone, setTelefone] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('');
+  const [showTrocoInput, setShowTrocoInput] = useState(false);
+  const [trocoValue, setTrocoValue] = useState('');
+
 
   const handleNextStep = () => {
     setActiveStep(activeStep + 1);
@@ -51,8 +54,22 @@ const PagamentoModal = ({ open, onClose }) => {
   };
 
   const handlePaymentMethod = (method) => {
-    setPaymentMethod(method);
+    if (method === 'cartao') {
+      setPaymentMethod(method);
+      setActiveStep(activeStep + 1);
+    } else {
+      setPaymentMethod(method);
+    }
   };
+  const handleTrocoButtonClick = () => {
+  setShowTrocoInput(true);
+  };
+
+  const handleTrocoInputChange = (event) => {
+  setTrocoValue(event.target.value);
+  };  
+
+  
   const renderStepContent = () => {
     switch (activeStep) {
       case 0:
@@ -144,6 +161,29 @@ const PagamentoModal = ({ open, onClose }) => {
                 <Button variant="outlined" onClick={() => handlePaymentMethod('cartao')}>
                   Cartão de Crédito
                 </Button>
+                {paymentMethod === 'a-vista' && (
+                    <div>
+                        <p>Deseja troco?</p>
+                        <Button variant="outlined" onClick={handleTrocoButtonClick}>
+                        Sim
+                        </Button>
+                        <Button variant="outlined" onClick={() => handlePaymentMethod('a-vista-sem-troco')}>
+                        Não
+                        </Button>
+                        {showTrocoInput && (
+                        <div>
+                            <TextField
+                            label="Troco para quanto?"
+                            variant="outlined"
+                            fullWidth
+                            value={trocoValue}
+                            onChange={handleTrocoInputChange}
+                            placeholder="R$: 0,00"
+                            />
+                        </div>
+                        )}
+                    </div>
+                )}
                 {paymentMethod === 'pix' && (
                     <div style={{ width: '15%', margin: '0 auto', textAlign: 'center' }}>
                     {loading ? (
