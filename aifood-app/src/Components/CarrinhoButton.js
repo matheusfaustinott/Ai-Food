@@ -3,6 +3,7 @@ import { Badge, IconButton } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CarrinhoCompras from './CarrinhoCompras';
 
+
 const CarrinhoButton = ({ cartItems, setCartItems }) => {
   const [openCarrinho, setOpenCarrinho] = useState(false);
 
