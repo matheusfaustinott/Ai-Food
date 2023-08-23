@@ -27,9 +27,9 @@ const FoodList = ({ setCartItems }) => {
   };
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={1}>
       {foods.map(food => (
-        <Grid item xs={12} sm={isMediumScreen ? 12 : 6} md={4} key={food.id}>
+        <Grid item xs={12} sm={isMediumScreen ? 12 : 6} md={6} key={food.id}>
           <Card style={{
             height: isMediumScreen ? '95%' : (isSmallScreen ? '60%' : '80%'), // Aplica a altura condicionalmente
             display: 'flex',
@@ -43,7 +43,7 @@ const FoodList = ({ setCartItems }) => {
               <Typography>{food.description}</Typography>
               <Typography variant="h6">Preço: {food.price}</Typography>
             </CardContent>
-            <CardActions>
+            <CardActions >
               <Button
                 size='small'
                 variant="contained"

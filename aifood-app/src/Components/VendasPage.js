@@ -3,6 +3,7 @@ import FoodList from './FoodList';
 // import Header from './Header'
 import CarrinhoButton from './CarrinhoButton'; // Importe o componente CarrinhoButton
 import WelcomeButton from './WelcomeButton'; 
+import { Container } from '@mui/material';
 
 
 const VendasPage = ({ user }) => {
@@ -14,15 +15,21 @@ const VendasPage = ({ user }) => {
       <div style={{
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'left',
+        justifyContent: 'right',
+        paddingRight: '50px',
+        paddingLeft: '50px',
+
       }}>
         {user && <p>Bem-vindo, {user.name}!</p>}
         <WelcomeButton/>
         <CarrinhoButton cartItems={cartItems} setCartItems={setCartItems} /> 
       </div>
       <div>
-        <h2>Cardápio:</h2>
-        <FoodList setCartItems={setCartItems} /> 
+        <Container>
+          <h2>Cardápio:</h2>
+          <FoodList setCartItems={setCartItems} /> 
+        </Container>
+
       </div>
     </div>
   );
