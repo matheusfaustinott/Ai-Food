@@ -75,27 +75,16 @@ const PagamentoModal = ({ open, onClose }) => {
       case 0:
         return (
           <div>
-            <TextField
-              label="CEP"
-              variant="outlined"
-              fullWidth
-              value={cep}
-              onChange={handleCepChange}
-            />
-            <TextField
-              label="Bairro"
-              variant="outlined"
-              fullWidth
-              value={bairro}
-              disabled={loading}
-            />
-            <TextField
-              label="Rua"
-              variant="outlined"
-              fullWidth
-              value={rua}
-              disabled={loading}
-            />
+          <div style={{ marginBottom: '10px' }}>
+            <TextField label="CEP" variant="outlined" fullWidth value={cep} onChange={handleCepChange} />
+          </div>
+          <div style={{ marginBottom: '10px' }}>
+            <TextField label="Bairro" variant="outlined" fullWidth value={bairro} disabled={loading} />
+          </div>
+          <div style={{ marginBottom: '10px' }}>
+            <TextField label="Rua" variant="outlined" fullWidth value={rua} disabled={loading} />
+          </div>
+          <div style={{ marginBottom: '10px' }}>
             <TextField
               label="Complemento"
               variant="outlined"
@@ -104,14 +93,11 @@ const PagamentoModal = ({ open, onClose }) => {
               onChange={(e) => setComplemento(e.target.value)}
               disabled={loading}
             />
-            <TextField
-              label="Cidade"
-              variant="outlined"
-              fullWidth
-              value={cidade}
-              disabled={loading}
-            />
           </div>
+          <div>
+            <TextField label="Cidade" variant="outlined" fullWidth value={cidade} disabled={loading} />
+          </div>
+        </div>
         );
       case 1:
         return (
@@ -204,8 +190,8 @@ const PagamentoModal = ({ open, onClose }) => {
   };
 
   return (
-    <Modal open={open} onClose={onClose}>
-      <Paper>
+    <Modal open={open} onClose={onClose} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <Paper style={{ padding: '20px', width: '600px', }} >
         <Stepper activeStep={activeStep}>
           <Step>
             <StepLabel>CEP</StepLabel>
@@ -217,8 +203,8 @@ const PagamentoModal = ({ open, onClose }) => {
             <StepLabel>Método de Pagamento</StepLabel>
           </Step>
         </Stepper>
-        <div>{renderStepContent()}</div>
-        <div>
+        <div style={{ marginTop: '20px' }}>{renderStepContent()}</div>
+        <div style={{ marginTop: '20px', display: 'flex', justifyContent: 'flex-end' }}>
           {activeStep > 0 && (
             <Button onClick={handlePrevStep}>Voltar</Button>
           )}
