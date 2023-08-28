@@ -4,6 +4,7 @@ const cors = require('cors');
 const db = require('./db');
 const loginRoute = require('./routes/login');
 const foodRoutes = require('./routes/food');
+const cadastroRoute = require('./routes/cadastro');
 
 
 const app = express();
@@ -14,6 +15,7 @@ app.use(cors());
 
 app.use('/login', loginRoute); // Usa a rota de login com o prefixo /login
 app.use('/api/foods', foodRoutes);// mesma coisa aqui
+app.use('/api/cadastro', cadastroRoute); //
 
 db.connect()
   .then(() => {
