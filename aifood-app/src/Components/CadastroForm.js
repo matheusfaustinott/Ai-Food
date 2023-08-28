@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { Modal, Button, TextField, Box } from '@mui/material';
+import { Modal, Button, TextField, Box, Typography } from '@mui/material';
 import axios from 'axios';
+import { useSpring, animated } from 'react-spring'; // Importe a biblioteca de animações
 
 const CadastroForm = ({ open, onClose }) => {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [message, setMessage] = useState(''); // Estado para exibir mensagens
+  const [showMessage, setShowMessage] = useState(false); // Estado para controlar a exibição da mensagem
 
   const handleNomeChange = (e) => {
     setNome(e.target.value);
@@ -26,14 +29,23 @@ const CadastroForm = ({ open, onClose }) => {
         email: email,
         password: password,
       });
+      setMessage('Cadastro feito com sucesso!');
+      setShowMessage(true); // Mostra a mensagem
       console.log('Usuário cadastrado:', response.data);
-      
+
       onClose(); // Feche o modal após o cadastro
     } catch (error) {
+      setMessage('Erro ao cadastrar usuário. Verifique os campos e tente novamente.');
+      setShowMessage(true); // Mostra a mensagem de erro
       console.error('Erro ao cadastrar usuário:', error);
-      
     }
   };
+
+  // Configurações de animação
+  const messageAnimation = useSpring({
+    opacity: showMessage ? 1 : 0,
+    transform: showMessage ? 'translateY(0)' : 'translateY(-20px)',
+  });
 
   return (
     <Modal open={open} onClose={onClose}>
@@ -50,36 +62,39 @@ const CadastroForm = ({ open, onClose }) => {
           borderRadius: 3,
         }}
       >
+        {}
+        <animated.div style={messageAnimation}>
+          <Typography variant="subtitle1" color={message.includes('sucesso') ? 'primary' : 'error'}>
+            {message}
+          </Typography>
+        </animated.div>
+
         <TextField
           fullWidth
           label="Nome"
-          variant="standard"
+          variant="outlined"
           value={nome}
           onChange={handleNomeChange}
-          sx={{marginBottom:'15px'}}
         />
         <TextField
           fullWidth
           label="Email"
-          variant="standard"
+          variant="outlined"
           value={email}
           onChange={handleEmailChange}
-          sx={{marginBottom:'15px'}}
         />
         <TextField
           fullWidth
           label="Senha"
           type="password"
-          variant="standard"
+          variant="outlined"
           value={password}
           onChange={handlePasswordChange}
-          sx={{marginBottom:'15px'}}
         />
         <Button
-          variant="standard"
+          variant="contained"
           color="primary"
           onClick={handleCadastro}
-          sx={{marginTop:'15px'}}
           fullWidth
         >
           Cadastrar

@@ -6,7 +6,10 @@ const pool = require('../db');
 router.post('/', async (req, res) => {
   try {
     const { name, password, email } = req.body;
-
+    
+    if (!name || !password || !email) {
+      return res.status(400).json({ message: 'Todos os campos são obrigatórios.' });
+    }
     // Verifica se o usuário já está cadastrado pelo email
     const existingUser = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
 
