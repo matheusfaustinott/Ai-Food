@@ -53,29 +53,33 @@ const CadastroForm = ({ open, onClose }) => {
         <TextField
           fullWidth
           label="Nome"
-          variant="outlined"
+          variant="standard"
           value={nome}
           onChange={handleNomeChange}
+          sx={{marginBottom:'15px'}}
         />
         <TextField
           fullWidth
           label="Email"
-          variant="outlined"
+          variant="standard"
           value={email}
           onChange={handleEmailChange}
+          sx={{marginBottom:'15px'}}
         />
         <TextField
           fullWidth
           label="Senha"
           type="password"
-          variant="outlined"
+          variant="standard"
           value={password}
           onChange={handlePasswordChange}
+          sx={{marginBottom:'15px'}}
         />
         <Button
-          variant="contained"
+          variant="standard"
           color="primary"
           onClick={handleCadastro}
+          sx={{marginTop:'15px'}}
           fullWidth
         >
           Cadastrar
