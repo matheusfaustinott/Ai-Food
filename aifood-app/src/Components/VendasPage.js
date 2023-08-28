@@ -38,7 +38,7 @@ const VendasPage = ({ user }) => {
 
 
       }}>
-        <div>
+        <div style={{display: 'flex', gap: '10px'}}>
           {/* aqui vai uma imagem com link p/ voltar pro topo da pagina */}
           <a href="#" onClick={scrollToTop}>
             <img 
@@ -47,6 +47,7 @@ const VendasPage = ({ user }) => {
             style={{ maxWidth: '60px', cursor: 'pointer', marginLeft: '80px' }} 
             />
           </a>
+          <h3>titulo site</h3>
         </div>
         <div style={{
           display:'flex',
