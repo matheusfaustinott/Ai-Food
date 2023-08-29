@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import FoodList from './FoodList';
 import CarrinhoButton from './CarrinhoButton'; // Importe o componente CarrinhoButton
 import WelcomeButton from './WelcomeButton'; 
-import { Container, Box } from '@mui/material';
+import { Container, Box, useMediaQuery } from '@mui/material';
 import fotoSites from '../images/fotoSite.png';
 
 
 const VendasPage = ({ user }) => {
+  const isSmallerScreen = useMediaQuery('(max-width: 850px)');
+  const isPhoneScreen = useMediaQuery('(max-width: 559px)');
+
   const [cartItems, setCartItems] = useState([]); // Adicione o estado para os itens do carrinho
   
   const scrollToTop = () => {
@@ -53,6 +56,10 @@ const VendasPage = ({ user }) => {
         paddingBottom: '10px',
         backgroundColor: '#b80000',
         zIndex: 1000,
+        flexDirection: isSmallerScreen ? 'column' : 'row', // Altera a direção em telas menores
+        textAlign: isSmallerScreen ? 'center' : 'left',
+        height: isPhoneScreen ? '150px' : (isSmallerScreen ? '100px' : '60px'), // Ajuste a altura aqui
+        padding: isSmallerScreen ? '35px' : '20px',
         
 
 
@@ -81,7 +88,8 @@ const VendasPage = ({ user }) => {
       <div style={{ marginTop: '80px' }}>
         <Container sx={{
           backgroundColor: 'rgb(255, 255, 255)', // Cor de fundo com opacidade rgba e mais uma ,
-          padding: '20px', 
+          padding: '20px',
+          padding: isSmallerScreen ? '70px' : '20px', 
         }}>
           <h2>Cardápio:</h2>
           <FoodList setCartItems={setCartItems} /> 
