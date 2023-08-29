@@ -51,7 +51,7 @@ const VendasPage = ({ user }) => {
         paddingLeft: '50px',
         paddingTop: '10px',
         paddingBottom: '10px',
-        backgroundColor: 'lightgrey',
+        backgroundColor: '#b80000',
         zIndex: 1000,
         
 
@@ -66,7 +66,7 @@ const VendasPage = ({ user }) => {
             style={{ maxWidth: '60px', cursor: 'pointer', marginLeft: '80px' }} 
             />
           </a>
-          <h3>titulo site</h3>
+          <h2 style={{ marginLeft: '5px', color:'white' }}> Lanchonete do Dudu Hamburgueria</h2>
         </div>
         <div style={{
           display:'flex',

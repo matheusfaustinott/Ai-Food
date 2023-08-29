@@ -20,8 +20,8 @@ const CarrinhoButton = ({ cartItems, setCartItems }) => {
       <IconButton onClick={handleOpenCarrinho} sx={{
         padding: '13px'
       }}>
-        <Badge badgeContent={cartItems.length} color="secondary">
-          <ShoppingCartIcon />
+        <Badge badgeContent={cartItems.length} color="primary">
+          <ShoppingCartIcon sx={{color: 'white'}}/>
         </Badge>
       </IconButton>
       <CarrinhoCompras open={openCarrinho} onClose={handleCloseCarrinho} cartItems={cartItems} setCartItems={setCartItems} />

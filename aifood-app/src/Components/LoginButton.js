@@ -20,7 +20,7 @@ const LoginButton = ({ onLoginSuccess }) => {
 
   return (
     <div>
-      <Button variant="contained" color="secondary" onClick={handleOpenModal}>
+      <Button variant="contained" color="error" onClick={handleOpenModal}>
         Login
       </Button>
       <LoginForm open={openModal} onClose={handleCloseModal} onLoginSuccess={handleLoginSuccess} />

@@ -15,7 +15,7 @@ const CadastroButton = () => {
 
   return (
     <div>
-      <Button variant="contained" color="primary" onClick={handleOpenModal}>
+      <Button variant="contained" color="secondary" onClick={handleOpenModal}>
         Cadastro
       </Button>
       <CadastroForm open={openModal} onClose={handleCloseModal} />

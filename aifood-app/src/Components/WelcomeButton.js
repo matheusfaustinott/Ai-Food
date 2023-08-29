@@ -37,10 +37,10 @@ const WelcomeButton = () => {
         variant="standard"
         color="primary"
         onClick={handleMenuOpen}
-        endIcon={<Avatar sx={{ bgcolor: getRandomColor() }}>{user && user.name.charAt(0)}</Avatar>}
+        startIcon={<Avatar sx={{ bgcolor: getRandomColor() }}>{user && user.name.charAt(0)}</Avatar>}
         sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}
       >
-        Olá {user && user.name} Bem-vindo!
+        <p style={{ color: 'white', margin: 0 }} >Olá {user && user.name} Bem-vindo!</p>
       </Button>
       <Menu
         anchorEl={anchorEl}
