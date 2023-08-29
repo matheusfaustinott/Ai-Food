@@ -72,27 +72,30 @@ const CadastroForm = ({ open, onClose }) => {
         <TextField
           fullWidth
           label="Nome"
-          variant="outlined"
+          variant="standard"
           value={nome}
           onChange={handleNomeChange}
+          sx={{mb:2}}
         />
         <TextField
           fullWidth
           label="Email"
-          variant="outlined"
+          variant="standard"
           value={email}
           onChange={handleEmailChange}
+          sx={{mb:2}}
         />
         <TextField
           fullWidth
           label="Senha"
           type="password"
-          variant="outlined"
+          variant="standard"
           value={password}
           onChange={handlePasswordChange}
+          sx={{mb:2}}
         />
         <Button
-          variant="contained"
+          variant="standard"
           color="primary"
           onClick={handleCadastro}
           fullWidth
