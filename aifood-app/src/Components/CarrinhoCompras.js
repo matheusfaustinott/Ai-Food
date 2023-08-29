@@ -66,7 +66,7 @@ const CarrinhoCompras = ({ open, onClose, cartItems, setCartItems }) => {
         <Divider />
         <div style={{ padding: '10px 16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}>
           <ListItemText primary={`Total: R$${calcularTotal().toFixed(2)}`} />
-          <Button size='small' variant="contained" color="success" onClick={handleAbrirPagamentoModal}>
+          <Button size='small' variant="outlined" color="primary" onClick={handleAbrirPagamentoModal}>
             Ir para pagamento
           </Button>
           <Button size='small' variant="contained" color="error" onClick={handleLimparCarrinho}>

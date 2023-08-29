@@ -15,9 +15,28 @@ const VendasPage = ({ user }) => {
 
   return (
     <Box sx={{
-      display: 'flex',
-      flexDirection: 'column'
-      }}>
+      // display: 'flex',
+      // flexDirection: 'column',
+      position: 'relative', 
+      // background: 'url("https://s1.1zoom.me/b4857/620/Fast_food_Hamburger_Vegetables_Fire_Two_520128_3840x2160.jpg") center/cover no-repeat fixed',
+      // backdropFilter: 'blur(5px)',
+      minHeight: '100vh',
+      }}
+    >
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundImage: 'url("https://s1.1zoom.me/b4857/620/Fast_food_Hamburger_Vegetables_Fire_Two_520128_3840x2160.jpg")',
+          backgroundSize: 'cover',
+          filter: 'blur(5px)',
+          zIndex: -1,
+        }}
+      ></div>
+      
       <div style={{
         position:'fixed',
         top: 0,
@@ -60,7 +79,10 @@ const VendasPage = ({ user }) => {
 
       </div>
       <div style={{ marginTop: '80px' }}>
-        <Container>
+        <Container sx={{
+          backgroundColor: 'rgb(255, 255, 255)', // Cor de fundo com opacidade rgba e mais uma ,
+          padding: '20px', 
+        }}>
           <h2>Cardápio:</h2>
           <FoodList setCartItems={setCartItems} /> 
         </Container>

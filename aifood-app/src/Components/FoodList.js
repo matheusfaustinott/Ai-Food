@@ -47,8 +47,8 @@ const FoodList = ({ setCartItems }) => {
               <Button
                 size='small'
                 variant="contained"
-                color="primary"
                 onClick={() => addToCart(food)}
+                sx={{ bgcolor: 'brown'}}
               >
                 Adicionar ao Carrinho
               </Button>
