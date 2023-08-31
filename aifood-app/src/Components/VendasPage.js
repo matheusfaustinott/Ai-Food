@@ -79,7 +79,7 @@ const VendasPage = ({ user }) => {
           display:'flex',
           flexDirection:'row'
         }}>
-          {user && <p>Bem-vindo, {user.name}!</p>}
+          {user && <p>Bom apetite, {user.name}!</p>}
           <WelcomeButton/>
           <CarrinhoButton cartItems={cartItems} setCartItems={setCartItems} /> 
         </div>

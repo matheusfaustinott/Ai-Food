@@ -48,7 +48,7 @@ const WelcomeButton = () => {
         startIcon={<Avatar sx={{ bgcolor: avatarColor }}>{user && user.name.charAt(0)}</Avatar>}
         sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}
       >
-        <p style={{ color: 'white', margin: 0 }}>Olá {user && user.name} Bem-vindo!</p>
+        <p style={{ color: 'white', margin: 0 }}>Olá, {user && user.name}! Seja bem-vindo!</p>
       </Button>
       <Menu
         anchorEl={anchorEl}
